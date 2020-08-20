@@ -12,8 +12,11 @@ post-install:
 	cp pam_validity.sh /usr/share/python-validity/playground/pam_validity.sh
 
 set-permissions:
-	sudo chmod +r /sys/class/dmi/id/product_serial
-	sudo chmod +r /sys/class/dmi/id/product_name
+	chmod +r /sys/class/dmi/id/product_serial
+	chmod +r /sys/class/dmi/id/product_name
+
+set-udev-rules:
+	echo 'ATTRS{idVendor}=="06cb", ATTRS{idProduct}=="009a", MODE="0666"' > /etc/udev/rules.d/10-fpreader.rules
 
 reload-udev-rules:
-	sudo udevadm control --reload-rules && udevadm trigger
+	udevadm control --reload-rules && udevadm trigger
