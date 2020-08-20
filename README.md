@@ -1,4 +1,5 @@
 # pam-validity
+
 PAM validity module to work with python-validity
 
 Currently supports the following sensors:
@@ -7,7 +8,7 @@ Currently supports the following sensors:
 138a:0097 Validity Sensors, Inc.
 06cb:009a Synaptics, Inc. Which are present in various ThinkPad and HP laptops.
 
-Hi this is a module created to get avail from pam-validity so you can authenticate. 
+Hi this is a module created to get avail from pam-validity so you can authenticate.
 This is a very simple module
 
 You need to install python-validity 1st and have at least a user and a finger enrolled
@@ -19,7 +20,7 @@ What you have to do:
 
 2. Install pam development package of your distro, in Fedora it is pam-devel
 
-3. Download pam_validity.c in any directory and compile with 
+3. Download pam_validity.c in any directory and compile with
 
  "# gcc -fPIC -fno-stack-protector -c pam_validity.c"
 
@@ -34,11 +35,11 @@ What you have to do:
 6. Add the following to any pam config file in /etc/pam.d/ you want to have fingerprint auth. I added mine to gdm-password, su and sudo.
 
  auth		sufficient	pam_validity.so
- 
+
  account sufficient  pam_validity.so
 
 Good luck!
 
 P.S. I just did this for fun and I am no programmer. You can open a ticket but I am not sure I can solve. I want to add features  but we will see....
 
-P.S.2 On 1st gdm login you might get a prompt to unlock the keyring. Unfortunately this is a known issue and only unlocks with a password. 
+P.S.2 On 1st gdm login you might get a prompt to unlock the keyring. Unfortunately this is a known issue and only unlocks with a password.

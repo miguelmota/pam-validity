@@ -1,23 +1,22 @@
 #!/bin/bash
-	echo "Hi reached sh"
 
-VAR1=$(/usr/bin/python3 <<EOF
+echo "Reached sh"
+
+RESULT=$(/usr/bin/python3 <<EOF
 from prototype import *
 open9x()
 identify()
+reboot()
 exit()
 EOF
 )
 
-echo $VAR1
+echo $RESULT
 
-if [[ $VAR1 == *finger* ]]
-then
-   echo "Success!"
-   exit 0
+if [[ $RESULT == *finger* ]]; then
+  echo "Success!"
+  exit 0
 else
-   echo "Failure!"
-   exit 114
+  echo "Failure!"
+  exit 114
 fi
-
-#echo "${VAR1}"
